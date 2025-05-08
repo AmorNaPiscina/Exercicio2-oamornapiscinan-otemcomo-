@@ -3,31 +3,74 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
+}
 
-  /* Estilo do corpo da página */
-  body {
+/* Estilo do corpo da página */
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #000000;
     padding: 20px;
     display: flex;
     justify-content: center;
     min-height: 100vh;
-  }
+}
 
-  /* Container que segura os cards */
-  .cards-container {
-    display: flex; /* exibe os cards lado a lado */
-    gap: 20px; /* espaçamento entre os cards */
+/* Container que segura os cards */
+.cards-container {
+    display: flex;
+    /* exibe os cards lado a lado */
+    gap: 20px;
+    /* espaçamento entre os cards */
     max-width: 900px;
     width: 100%;
+}
 
-  }
+/* Estilo dos cards (caixas) */
+.card {
+    /* Apply rainbow gradient background */
+    background: linear-gradient(270deg,
+            red,
+            orange,
+            yellow,
+            green,
+            blue,
+            indigo,
+            violet);
+    background-size: 400% 400%;
+    animation: rainbowShiftCards 10s linear infinite;
+    flex: 1;
+    /* para que os cards tenham tamanhos iguais e preencham o container */
+    border-radius: 12px;
+    padding: 20px;
+    /* remove previous white background */
+    /* Add subtle shadow with some transparency */
+    box-shadow: 0 6px 14px rgba(0, 217, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  /* Estilo dos cards (caixas) */
-  .card {
+/* Animation for card background */
+@keyframes rainbowShiftCards {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilo dos cards (caixas) */
+.card {
     background-color: rgb(255, 255, 255);
-    flex: 1; /* para que os cards tenham tamanhos iguais e preencham o container */
+    flex: 1;
+    /* para que os cards tenham tamanhos iguais e preencham o container */
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 6px 14px rgb(0, 217, 255);
@@ -35,31 +78,38 @@
     flex-direction: column;
     justify-content: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+}
 
-  /* Efeito hover nos cards no desktop */
-  .card:hover {
+/* Efeito hover nos cards no desktop */
+.card:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
-  }
+}
 
-  /* Estilo do título dentro do card */
-  .card h2 {
+/* Estilo do título dentro do card */
+.card h2 {
     font-size: 1.5rem;
     margin-bottom: 12px;
     color: #000000;
-  }
+}
 
-  /* Estilo do conteúdo texto */
-  .card p {
-    color: #000000;
+/* Estilo do conteúdo texto */
+.card p {
+    text-shadow:
+        -1px -1px 0 #000000,
+        1px -1px 0 #000000,
+        -1px 1px 0 #000000,
+        1px 1px 0 #000000;
+    /* Cor do contorno */
+    color: #ffffff;
     line-height: 1.5;
-  }
+}
 
-  /* Responsividade para telas menores (ex: celulares) */
-  @media (max-width: 600px) {
+/* Responsividade para telas menores (ex: celulares) */
+@media (max-width: 600px) {
     .cards-container {
-      flex-direction: column; /* empilha os cards verticalmente */
-      gap: 15px;
+        flex-direction: column;
+        /* empilha os cards verticalmente */
+        gap: 15px;
     }
-  }
+}
